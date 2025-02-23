@@ -59,6 +59,21 @@ Create a ROS package for your own code (OR skip this step and just clone this re
 ros2 pkg create --build-type ament_python --node-name offboard_node offboard_pkg
 ```
 
+[Optional] You may choose to use launch files as opposed to running individual nodes. Launch files allow you to run multiple nodes at once and you can even run terminal commands (ie starting PX4). If you cloned the package, the launch file is already setup for you. If you made your own package, created a folder called launch at the root of your package. Create a python file inside the launch folder called ```offboard_launch.launch.py```. You can name it whatever you want, but it must end in ```.launch.py```. Copy the contents of this [file](https://github.com/Redfalcon5-ai/offboard_pkg/blob/main/launch/offboard_launch.launch.py) into your launch file. Lastly, add ```(os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*')))``` under data files in setup.py:
+```
+data_files=[
+        ('share/ament_index/resource_index/packages',
+            ['resource/' + package_name]),
+        ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'), glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
+    ],
+
+*Also be sure to add the following import statements to the top of setup.py:
+
+import os
+from glob import glob
+```
+
 Build the workspace with symlink so you won't have to rebuild after every edit: 
 ```
 cd ~/ws_sensor_combined/
