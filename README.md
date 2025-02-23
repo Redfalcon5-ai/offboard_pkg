@@ -44,7 +44,7 @@ git clone https://github.com/PX4/px4_msgs.git
 git clone https://github.com/PX4/px4_ros_com.git
 ```
 
-Create a ROS package for your own code (OR skip this step and just clone this repo as you did with PX4_msgs above). If you make your own package, copy this [code](https://github.com/Redfalcon5-ai/offboard_pkg/blob/main/offboard_pkg/offboard_node.py) into ```offboard_pkg/offboard_node.py```
+Create a ROS package for your own code (OR skip this step and just clone this repo as you did with PX4_msgs above). If you make your own package, copy this [code](https://github.com/Redfalcon5-ai/offboard_pkg/blob/main/offboard_pkg/offboard_node.py) into ```offboard_pkg/offboard_node.py``` after making the package.
 ```
 ros2 pkg create --build-type ament_python --node-name offboard_node offboard_pkg
 ```
