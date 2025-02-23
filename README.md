@@ -104,4 +104,4 @@ colcon build --symlink-install
 Open 3 Terminals
 - 1 - PX4: In the PX4 directory, run ```make px4_sitl gazebo-classic```
 - 2 - XRCE_DDS: In the Micro-XRCE-DDS-Agent directory, run ```MicroXRCEAgent udp4 -p 8888```
-- 3 - ROS node: In the workspace, run ```ros2 run offboard_pkg offboard_node```
+- 3 - ROS node: In the workspace, run ```ros2 run offboard_pkg offboard_node``` OR ```ros2 launch offboard_pkg offboard_launch.launch.py``` if you setup the launch file
