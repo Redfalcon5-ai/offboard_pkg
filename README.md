@@ -18,7 +18,17 @@ Add ```source /opt/ros/foxy/setup.bash``` to your .bashrc and run ```source ~/.b
 
 ## Micro-XRCE-DDS-Agent Install
 
-In your home directory:
+This installation requires a cmake version >= 3.20 and it is probably the case that you have 3.13.3 or similar. At the time of writing this, cmake 4.0 has just been released, but please use cmake 3.20 to 3.31.5. Follow these steps to upgrade it:
+
+1) [Download](https://cmake.org/download/) the latest cmake bash script. In my case, it was ```cmake-3.31.5-Linux-x86_64.sh```
+2) Move the script to your home directory and copy it to /opt/ using ```sudo cp ~/cmake-3.*version*-Linux-x86_64.sh /opt/```
+3) Give the script executable permissions by running ```sudo chmod +x /opt/cmake-3.*version*.sh```
+4) ```cd /opt/``` and run the script: ```sudo bash /opt/cmake-3.*version*.sh```. You will have to answer ```y``` twice
+5) Run ```sudo ln -s /opt/cmake-3.*version*/bin/* /usr/local/bin```
+6) Check the version: ```cmake --version```
+7) You will have to run the PX4 setup script again. Navigate to your home directory and run ```bash ./PX4-Autopilot/Tools/setup/ubuntu.sh```
+
+Once cmake is updated, follow these steps:
 ```
 git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
 cd Micro-XRCE-DDS-Agent
